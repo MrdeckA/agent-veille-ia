@@ -1,0 +1,4 @@
+feedparser
+pyairtable
+schedule
+python-dotenv
