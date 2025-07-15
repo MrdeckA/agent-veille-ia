@@ -7,6 +7,34 @@ Il collecte régulièrement des articles récents provenant de plusieurs sources
 
 ---
 
+## ⚡ Démarrage rapide
+
+### En 3 étapes simples :
+
+1. **Installation**
+   ```bash
+   git clone <votre_repo>
+   cd veille-ia
+   pip install -r requirements.txt
+   ```
+
+2. **Configuration**
+   ```bash
+   cp env.example .env
+   # Éditez .env avec vos clés Airtable
+   ```
+
+3. **Lancement**
+   ```bash
+   python main.py
+   ```
+
+**Résultat** : L'agent collecte immédiatement les articles IA et les stocke dans votre base Airtable.
+
+> 💡 **Mode automatique** : L'agent s'exécute ensuite quotidiennement à 09:00 pour maintenir votre veille à jour.
+
+---
+
 ## 🚀 Fonctionnalités
 
 - Collecte des articles récents une fois par jour à 09:00
@@ -106,10 +134,10 @@ pip install -r requirements.txt
 ```
 
 ### 3️⃣ Configurer les variables d'environnement
-Copiez le fichier `env.example` vers `.env` et configurez vos variables :
+Copiez le fichier `.env.example` vers `.env` et configurez vos variables :
 
 ```bash
-cp env.example .env
+cp .env.example .env
 ```
 
 Éditez le fichier `.env` avec vos informations Airtable :
