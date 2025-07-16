@@ -99,12 +99,19 @@ def fetch_and_store():
                 summary = clean_html_text(getattr(entry, 'summary', ''))
                 published_raw = getattr(entry, 'published', '')
                 
-                # Parsing de la date de publication (format RSS standard)
+                # Parsing de la date de publication (formats RSS multiples)
                 try:
-                    published_dt = datetime.strptime(published_raw, '%a, %d %b %Y %H:%M:%S %z')
+                    # Format 1: 'Mon, 14 Jul 2025 19:42:16 GMT' (fuseau textuel)
+                    published_dt = datetime.strptime(published_raw, '%a, %d %b %Y %H:%M:%S %Z')
                     published_real = published_dt.strftime('%Y-%m-%d')
                 except:
-                    published_real = published_raw
+                    try:
+                        # Format 2: 'Tue, 01 Jul 2025 14:49:42 +0200' (fuseau numérique)
+                        published_dt = datetime.strptime(published_raw, '%a, %d %b %Y %H:%M:%S %z')
+                        published_real = published_dt.strftime('%Y-%m-%d')
+                    except:
+                        # Si aucun format ne fonctionne, on utilise la date brute
+                        published_real = published_raw
                 
                 collected_at = datetime.now().strftime('%Y-%m-%d')
 
@@ -126,7 +133,6 @@ def fetch_and_store():
                     "Published": published_real,
                     "Collected": collected_at
                 }
-
                 # Ajout dans Airtable
                 try:
                     table.create(record_data)
