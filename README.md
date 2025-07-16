@@ -37,7 +37,6 @@ Il collecte régulièrement des articles récents provenant de plusieurs sources
 ### Stratégie d'automatisation
 - **Collecte quotidienne à 09:00** : Optimale pour une veille efficace sans surcharge
 - Une première collecte est déclenchée immédiatement au lancement
-- Mode manuel disponible (collecte unique sans planification)
 
 **Justification de la fréquence quotidienne :**
 - **Équilibre optimal** : Suffisant pour rester à jour sans surcharger les sources
@@ -145,19 +144,8 @@ RSS_FEEDS = [
 
 ## 🚀 Utilisation
 
-### Mode manuel (collecte unique)
 ```bash
 python main.py
-```
-
-### Mode automatique (collecte quotidienne)
-L'agent s'exécute automatiquement tous les jours à 09:00 :
-```python
-schedule.every().day.at("09:00").do(fetch_and_store)
-print(f"Agent en veille - prochaine collecte demain à 09:00...\n")
-while True:
-    schedule.run_pending()
-    time.sleep(60)
 ```
 
 ### Suivi de la collecte
