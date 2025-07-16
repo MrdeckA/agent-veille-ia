@@ -116,10 +116,6 @@ cp .env.example .env
 - `AIRTABLE_BASE_ID` : L'ID de votre base (visible dans l'URL d'Airtable)
 - `AIRTABLE_TABLE_NAME` : Le nom de votre table
 
-```
-
----
-
 ## 🚀 Utilisation
 
 ```bash
