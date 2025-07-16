@@ -116,28 +116,6 @@ cp .env.example .env
 - `AIRTABLE_BASE_ID` : L'ID de votre base (visible dans l'URL d'Airtable)
 - `AIRTABLE_TABLE_NAME` : Le nom de votre table
 
-### 4️⃣ Configuration des flux RSS
-
-Les flux RSS sont configurés dans le fichier `main.py` dans la variable `RSS_FEEDS`. Chaque flux est défini comme un objet avec :
-- `name` : Nom lisible de la source (ex: "ActuIA", "Google News IA")
-- `url` : URL du flux RSS
-
-Exemple de configuration :
-```python
-RSS_FEEDS = [
-    {
-        "name": "Google News IA",
-        "url": "https://news.google.com/rss/search?q=intelligence+artificielle&hl=fr&gl=FR&ceid=FR:fr"
-    },
-    {
-        "name": "ActuIA",
-        "url": "https://www.actuia.com/feed"
-    },
-    {
-        "name": "Euronews IA",
-        "url": "https://fr.euronews.com/rss?level=tag&name=intelligence-artificielle"
-    }
-]
 ```
 
 ---
